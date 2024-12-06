@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<!-- 2.5.22可以不使用"namespace"屬性 -->
+	<package name="root" namespace="/" extends="struts-default, json-default, jasperreports-default">
+		<action name="index" class="org.my.action.FooAction" method="execute">
+			<result name="success">/jsp/index.jsp</result>
+			<result name="error">/jsp/index.jsp</result>
+			<result name="fail">/jsp/index.jsp</result>
+		</action>
+		<action name="sample" class="org.my.action.FooAction" method="execute">
+			<result name="success">/jsp/sample.jsp</result>
+		</action>
+		<action name="sample_request" class="org.my.action.FooAction" method="foo">
+			<result name="success">/jsp/sample.jsp</result>
+		</action>
+		<action name="report_jasper" class="org.my.action.FooAction" method="report">
+			<result name="success" type="jasper">
+				<param name="location">/reports/Cherry.jasper</param>
+				<param name="dataSource">list2</param>
+				<param name="reportParameters">map</param>
+				<param name="format">PDF</param>
+				<!-- <param name="contentDisposition">filename="test.pdf"</param> -->
+			</result>
+		</action>
+		<action name="report_stream" class="org.my.action.FooAction" method="subReport">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">attachment;filename="EmployeeRecords.pdf"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+	</package>
+	<!-- 2.5.X parameter -->
+	<!-- json sample -->
+	<package name="ajax" namespace="/ajax" extends="json-default">
+		<action name="api1" class="org.my.action.FooAction" method="api1">
+			<param name="var">var</param>
+			<result name="success" type="json">map</result>
+		</action>
+	</package>
+</struts>

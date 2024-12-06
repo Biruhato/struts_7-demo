@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+.ui-menu {
+	width: 150px;
+}
+
+body {
+	font-size: 12px;
+}

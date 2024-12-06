@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="busyR21" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4d2c3d42-f334-41a0-9ff8-fc0d792e2c50">
+	<property name="ireport.zoom" value="1.2100000000000155"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select A6AIT1 AS a6ait1, '測試' AS a6ait1name, A6DEPT AS a6dept, '部門名稱' AS a6deptname,
+A6BC01 AS a6bc01,
+A6BC02 AS a6bc02,
+A6BC03 AS a6bc03,
+A6BC04 AS a6bc04,
+A6BC05 AS a6bc05,
+A6BC06 AS a6bc06,
+A6BC07 AS a6bc07,
+A6BC08 AS a6bc08,
+A6BC09 AS a6bc09,
+A6BC10 AS a6bc10,
+A6BC11 AS a6bc11,
+A6BC12 AS a6bc12
+from ZSYB0600
+WHERE A6ZBTP='F'
+AND A6CONO='SYS'
+AND A6ZBYR=2014
+AND A6ZBVR=100
+AND A6DEPT BETWEEN '1000' AND '1500'
+order by A6DEPT]]>
+	</queryString>
+	<pageHeader>
+		<band height="95" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="55" width="221" height="20" uuid="d79047fb-564c-46a9-9187-3adcf7748f57"/>
+				<textElement>
+					<font fontName="全字庫正楷體" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression><![CDATA["開始列印時間："]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="24" width="221" height="20" uuid="9581aa79-bfa9-4cef-b145-1da14c6097eb"/>
+				<textElement>
+					<font fontName="微軟正黑體" pdfEncoding="Cp1252"/>
+				</textElement>
+				<textFieldExpression><![CDATA["ABC"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="14"/>
+	</detail>
+	<summary>
+		<band height="64"/>
+	</summary>
+</jasperReport>

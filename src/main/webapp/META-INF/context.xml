@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="MariaDB-Ref" auth="Application" type="javax.sql.DataSource"
+	maxActive="15" maxIdle="10" maxWait="10000" username="root" password="HolyBell-Lo3"
+	driverClassName="org.mariadb.jdbc.Driver"
+	defaultTransactionIsolation="READ_UNCOMMITTED"
+	url="jdbc:mysql://127.0.0.1:3306/cp_db?autoReconnect=true&amp;maxReconnects=36000&amp;initialTimeout=3&amp;characterEncoding=UTF-8" />
+</Context>

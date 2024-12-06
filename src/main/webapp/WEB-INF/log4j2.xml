@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" strict="true" name="XMLConfigTest" packages="org.apache.logging.log4j.test">
+	<Properties>
+		<Property name="filename">target/fingate_log.log</Property>
+	</Properties>
+	<Filter type="ThresholdFilter" level="trace" />
+	<Appenders>
+		<Appender type="Console" name="STDOUT">
+			<Layout type="PatternLayout">
+				<Pattern>%d %p %C{1.} [%t] %m{nolookups}%n</Pattern>
+			</Layout>
+			<Filters>
+				<Filter type="MarkerFilter" marker="FLOW" onMatch="DENY" onMismatch="NEUTRAL" />
+				<Filter type="MarkerFilter" marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT" />
+			</Filters>
+		</Appender>
+		<Appender type="Console" name="FLOW">
+			<Layout type="PatternLayout" pattern="%C{1}.%M %m{nolookups} %ex%n" />
+			class and line number
+			<Filters>
+				<Filter type="MarkerFilter" marker="FLOW" onMatch="ACCEPT" onMismatch="NEUTRAL" />
+				<Filter type="MarkerFilter" marker="EXCEPTION" onMatch="ACCEPT" onMismatch="DENY" />
+			</Filters>
+		</Appender>
+		<Appender type="File" name="FILE" fileName="${filename}">
+			<Layout type="PatternLayout">
+				<Pattern>%d %p %C{1.} [%t] %m{nolookups}%n</Pattern>
+			</Layout>
+		</Appender>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.asi" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="net.sf" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.ibatis.common.jdbc.SimpleDataSource" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.ibatis.common.jdbc.ScriptRunner" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.ibatis" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.ibatis.common.jdbc.SimpleDataSource" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.ibatis.common.jdbc.ScriptRunner" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="org.apache.ibatis" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<AppenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="java.sql.PreparedStatement" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+		</Logger>
+		<Logger name="java.sql.Connection" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<appenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="java.sql.Statement" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+		</Logger>
+		<Logger name="com.asi.printsys" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<appenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.asi.printsys.security" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<appenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.asi" level="debug" additivity="false">
+			<AppenderRef ref="FILE" />
+			<appenderRef ref="STDOUT" level="debug" />
+		</Logger>
+		<Logger name="com.asi.securitiessys" level="debug" additivity="false">
+			<AppenderRef ref="stdout" />
+		</Logger>
+		<Logger name="com.asi.fis" level="debug" additivity="false">
+			<AppenderRef ref="stdout" />
+		</Logger>
+		<Root level="DEBUG">
+			<AppenderRef ref="FILE" />
+			<appenderRef ref="STDOUT" level="debug" />
+		</Root>
+	</Loggers>
+</Configuration>

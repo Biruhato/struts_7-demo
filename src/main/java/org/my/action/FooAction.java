@@ -9,11 +9,10 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.struts2.ActionContext;
 import org.apache.struts2.interceptor.parameter.StrutsParameter;
 import org.my.manager.FooManager;
 import org.my.mybatis.service.dao.mybatis.model.Idea;
-
-import com.opensymphony.xwork2.ActionContext;
 
 public class FooAction {
 
@@ -215,8 +214,8 @@ public class FooAction {
 		this.var2 = var2;
 	}
 
-	// struts parameter annotation因應request資料為資料結構的話，則需要放在get method上
-	// XXX 此規則很詭異，未來get set method都加上struts parameter annotation
+	// struts parameter annotation因應request資料為資料結構的話，則需要放在getter上
+	// XXX 此規則很詭異，未來getter setter都加上struts parameter annotation
 	@StrutsParameter(depth = 10)
 	public Map<String, String> getMap() {
 		return map;
